@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seminar 1</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ intro }}</h1>
+        <p class="cart"> Товаров в корзине {{ counter }}</p>
+        <button @click="toCount">{{ buyText }}</button>
+    </div>
+    <script>
+        const HelloVueApp = {
+            data() {
+                return {
+                    intro: 'Hello Vue!!!',
+                    counter: 0,
+                    buyText: 'Купить'
+                }
+            },
+            methods: {
+                toCount() {
+                    if (this.counter < 1) {
+                        this.counter++;
+                        this.buyText = 'Товар в корзине';
+                    }
+                }
+            },
+        };
+        Vue.createApp(HelloVueApp).mount('#app');
+    </script>
+</body>
+</html>
